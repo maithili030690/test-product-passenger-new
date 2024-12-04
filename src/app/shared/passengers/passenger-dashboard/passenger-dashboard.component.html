@@ -1,0 +1,20 @@
+<!-- <p>passenger-dashboard works!</p> -->
+<h2>Airline Passengers</h2>
+<app-pass-count
+[totalCount]="passArr.length"
+[checkInCount]="checkInCount"
+></app-pass-count>
+
+<ul class="list-group" my-4>
+    <li
+    *ngFor="let pass of passArr"
+    class="list-group-item">
+    {{pass.fullname}}
+    </li>
+</ul>
+{{ getCheckInCount()|json}}
+<app-pass-card
+(emitPassInfo)="onRemoveUpdate($event)"
+[passObj]="pass"
+*ngFor="let pass of passArr"
+></app-pass-card>
